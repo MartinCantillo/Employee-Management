@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marti\\OneDrive\\Escritorio\\Employee Management\\MvcProject\\MvcProject.csproj": {}
+    "C:\\Users\\marti\\OneDrive\\Escritorio\\Employee Management\\mvcproject\\MvcProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marti\\OneDrive\\Escritorio\\Employee Management\\MvcProject\\MvcProject.csproj": {
+    "C:\\Users\\marti\\OneDrive\\Escritorio\\Employee Management\\mvcproject\\MvcProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\OneDrive\\Escritorio\\Employee Management\\MvcProject\\MvcProject.csproj",
+        "projectUniqueName": "C:\\Users\\marti\\OneDrive\\Escritorio\\Employee Management\\mvcproject\\MvcProject.csproj",
         "projectName": "MvcProject",
-        "projectPath": "C:\\Users\\marti\\OneDrive\\Escritorio\\Employee Management\\MvcProject\\MvcProject.csproj",
+        "projectPath": "C:\\Users\\marti\\OneDrive\\Escritorio\\Employee Management\\mvcproject\\MvcProject.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\OneDrive\\Escritorio\\Employee Management\\MvcProject\\obj\\",
+        "outputPath": "C:\\Users\\marti\\OneDrive\\Escritorio\\Employee Management\\mvcproject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config"
