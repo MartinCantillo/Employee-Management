@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -10,7 +11,27 @@
     <link rel="stylesheet" href="~/MvcProject.styles.css" asp-append-version="true" />
     <script src='main.js'></script>
 </head>
+
 <body>
-     @RenderBody()
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Empleado" asp-action="RegistrarE"> Empleado</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Departamento" asp-action="RegistrarD"> Departamento</a>
+            <div class="container-fluid">
+                <div class="ml-auto"></div>
+            </div>
+             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="SignIn">Sign in</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
+
+        </nav>
+    </header>
+    @RenderBody()
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
