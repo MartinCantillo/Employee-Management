@@ -16,14 +16,13 @@ namespace MvcProject.Models
             this.AreaD = AreaD;
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public int Id { get; set; }
 
         public string NombreD { get; set; }
 
         public string AreaD { get; set; }
 
-
+        public ICollection<Empleado> Empleados;
     }
 }
