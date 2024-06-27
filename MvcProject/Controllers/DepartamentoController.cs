@@ -22,11 +22,18 @@ namespace mvcproject.Controllers
             _logger.LogInformation("Se ha accedido al método RegistrarD.");
             return View();
         }
-        public IActionResult RegistroD(){
+        public IActionResult RegistroD()
+        {
             return View();
         }
 
-         public IActionResult VerD(){
+        public IActionResult VerD()
+        {
+            return View();
+        }
+
+        public IActionResult ObtenerD()
+        {
             return View();
         }
     }
