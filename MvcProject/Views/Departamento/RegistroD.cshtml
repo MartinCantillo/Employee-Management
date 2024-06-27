@@ -1,2 +1,26 @@
+@model MvcProject.Models.Departamento
 
-<p>RegistroD</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center" style="font-style: oblique;">Registro de Departamento</h1>
+
+            @using (Html.BeginForm("GuardarD", "Departamento", FormMethod.Post))
+            {
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    @Html.TextBoxFor(x => x.NombreD, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.NombreD, "", new { @class = "text-danger" })
+                </div>
+                <div class="mb-3">
+                    <label for="area" class="form-label">Área</label>
+                    @Html.TextBoxFor(x => x.AreaD, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.AreaD, "", new { @class = "text-danger" })
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
