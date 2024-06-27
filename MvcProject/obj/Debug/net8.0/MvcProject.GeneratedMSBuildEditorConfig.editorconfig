@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\marti\OneDrive\Escritorio\Employee Management\mvcproject
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/marti/OneDrive/Escritorio/Employee Management/mvcproject/Views/Departamento/DmayorDiez.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0YW1lbnRvXERtYXlvckRpZXouY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marti/OneDrive/Escritorio/Employee Management/mvcproject/Views/Departamento/EmpleadoxD.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0YW1lbnRvXEVtcGxlYWRveEQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/marti/OneDrive/Escritorio/Employee Management/mvcproject/Views/Departamento/ObtenerD.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0YW1lbnRvXE9idGVuZXJELmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

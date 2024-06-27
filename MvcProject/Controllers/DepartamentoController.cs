@@ -36,5 +36,13 @@ namespace mvcproject.Controllers
         {
             return View();
         }
+          public IActionResult EmpleadoxD()
+        {
+            return View();
+        }
+           public IActionResult DmayorDiez()
+        {
+            return View();
+        }
     }
 }
