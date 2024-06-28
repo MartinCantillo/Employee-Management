@@ -50,6 +50,7 @@ namespace mvcproject.Controllers
          [HttpPost]
         public IActionResult GuardarD(Departamento d)
         {
+            
             if (ModelState.IsValid)
             {
 
