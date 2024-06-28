@@ -9,6 +9,10 @@ namespace MvcProject.Models
 {
     public class Empleado
     {
+        public Empleado()
+        {
+        }
+
         public Empleado(int Id, string Name, string Codigo, string Cargo, int IdDepartamento)
         {
             this.Id = Id;
