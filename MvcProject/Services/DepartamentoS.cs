@@ -11,9 +11,9 @@ namespace mvcproject.Services
     public class DepartamentoS : IDepartamento
     {
         private readonly DataContext _DataContext;
-        public DepartamentoS(DataContext _DataContext)
+        public DepartamentoS(DataContext dataContext)
         {
-            this._DataContext = _DataContext ?? throw new ArgumentNullException(nameof(_DataContext));
+            this._DataContext = dataContext;
         }
 
         public void DeleteD(int id)
@@ -24,11 +24,11 @@ namespace mvcproject.Services
             }
             else
             {
-                var found = this._DataContext._Departamento.FirstOrDefault(d => d.Id == id);
+                var found = this._DataContext.Departamento.FirstOrDefault(d => d.Id == id);
                 if (found != null)
                 {
 
-                    this._DataContext._Departamento.Remove(found);
+                    this._DataContext.Departamento.Remove(found);
                     this._DataContext.SaveChanges();
                 }
                 else
@@ -38,32 +38,39 @@ namespace mvcproject.Services
             }
         }
 
-        public ICollection<Departamento> GetD() => this._DataContext._Departamento.ToList();
+        public ICollection<Departamento> GetD() => this._DataContext.Departamento.ToList();
 
-      public void SaveD(Departamento d)
-{
-    if (d == null)
-    {
-        throw new ArgumentNullException(nameof(d));
-    }
+        public void SaveD(Departamento d)
+        {
+            if (d == null)
+            {
+                throw new ArgumentNullException("El Departamento es null");
+            }
 
-    if (d.NombreD == "" || d.AreaD == "")
-    {
-        throw new Exception("Por favor verifica");
-    }
-      if (_DataContext == null)
-    {
-        throw new Exception("DataContext no inicializado correctamente");
-    }
-    else
-    {
-        d.Id=1;
-        Console.WriteLine(d.Id);
-        Console.WriteLine(d.NombreD + d.AreaD);
-        _DataContext._Departamento.Add(d);
-        _DataContext.SaveChanges();
-    }
-}
+            if (string.IsNullOrWhiteSpace(d.NombreD) || string.IsNullOrWhiteSpace(d.AreaD))
+            {
+                throw new Exception("El nombre y el área son obligatorios");
+            }
+
+            try
+            {
+                Console.WriteLine("servicios saveD");
+                Console.WriteLine($"DataContext: {_DataContext}");
+               
+
+                 Console.WriteLine($"Departamento: {d.NombreD}, {d.AreaD}, {d.Id}");
+                //d.Id=1;
+                _DataContext.Departamento.Add(d);
+                _DataContext.SaveChanges();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al guardar el departamento", ex);
+            }
+        }
+
 
     }
 }

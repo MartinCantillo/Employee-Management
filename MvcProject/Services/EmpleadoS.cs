@@ -26,11 +26,11 @@ namespace mvcproject.Services
             }
             else
             {
-                var found = this._DataContext._Empleado.FirstOrDefault(d => d.Id == id);
+                var found = this._DataContext.Empleado.FirstOrDefault(d => d.Id == id);
                 if (found != null)
                 {
 
-                    this._DataContext._Empleado.Remove(found);
+                    this._DataContext.Empleado.Remove(found);
                     this._DataContext.SaveChanges();
                 }
                 else
@@ -40,7 +40,7 @@ namespace mvcproject.Services
             }
         }
 
-        public ICollection<Empleado> GetEmpleados() => this._DataContext._Empleado.ToList();
+        public ICollection<Empleado> GetEmpleados() => this._DataContext.Empleado.ToList();
 
 
         public void SaveE(Empleado e)
@@ -51,7 +51,7 @@ namespace mvcproject.Services
             }
             else
             {
-                this._DataContext._Empleado.Add(e);
+                this._DataContext.Empleado.Add(e);
                 this._DataContext.SaveChanges();
             }
         }

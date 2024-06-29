@@ -15,10 +15,10 @@ namespace mvcproject.Controllers
         private readonly ILogger<DepartamentoController> _logger;
         private readonly IDepartamento _IDepartamento;
 
-        public DepartamentoController(ILogger<DepartamentoController> _logger,IDepartamento _IDepartamento)
+        public DepartamentoController(ILogger<DepartamentoController> _logger, IDepartamento _IDepartamento)
         {
             this._logger = _logger;
-            this._IDepartamento=_IDepartamento;
+            this._IDepartamento = _IDepartamento;
         }
 
         public IActionResult RegistrarD()
@@ -50,16 +50,24 @@ namespace mvcproject.Controllers
         }
 
 
-         [HttpPost]
+        [HttpPost]
         public IActionResult GuardarD(Departamento d)
         {
-            
             if (ModelState.IsValid)
-            {     _logger.LogInformation(d.NombreD + d.AreaD);
-                
-                this._IDepartamento.SaveD(d);
+            {
+                _logger.LogInformation($"Guardando departamento: {d.NombreD}, {d.AreaD}");
 
-                return RedirectToAction("Confirmacion");
+                try
+                {
+                    this._IDepartamento.SaveD(d);
+
+                    return RedirectToAction("Confirmacion");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Error al guardar departamento: {ex.Message}");
+                    throw; // O manejar el error adecuadamente según tu aplicación
+                }
             }
             return View(d);
         }

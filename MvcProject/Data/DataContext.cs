@@ -13,10 +13,6 @@ namespace MvcProject.Data
         {
         }
 
-        public DbSet<Departamento> _Departamento;
-        public DbSet<Empleado> _Empleado;
-
-
         //Configuracion de las relaciones
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -37,9 +33,13 @@ namespace MvcProject.Data
              .ValueGeneratedOnAdd(); //pk autoincremental
 
             modelBuilder.Entity<Empleado>()
-            .HasOne<Departamento>()//relacion con departamento
+            .HasOne(e => e.Departamento)//relacion con departamento
             .WithMany()
-            .HasForeignKey(e => e.IdDepartamento);//Atributo de relacion fk
+            .HasForeignKey(e => e.IdDepartamento)//Atributo de relacion fk
+            .OnDelete(DeleteBehavior.Cascade);
         }
+
+        public DbSet<Departamento> Departamento{set;get;}
+        public DbSet<Empleado> Empleado{set;get;}
     }
 }

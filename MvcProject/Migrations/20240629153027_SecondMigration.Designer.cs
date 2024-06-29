@@ -11,8 +11,8 @@ using MvcProject.Data;
 namespace MvcProject.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240627214600_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20240629153027_SecondMigration")]
+    partial class SecondMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,17 +78,12 @@ namespace MvcProject.Migrations
             modelBuilder.Entity("MvcProject.Models.Empleado", b =>
                 {
                     b.HasOne("MvcProject.Models.Departamento", "Departamento")
-                        .WithMany("Empleados")
+                        .WithMany()
                         .HasForeignKey("IdDepartamento")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Departamento");
-                });
-
-            modelBuilder.Entity("MvcProject.Models.Departamento", b =>
-                {
-                    b.Navigation("Empleados");
                 });
 #pragma warning restore 612, 618
         }
