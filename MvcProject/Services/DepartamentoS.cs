@@ -13,7 +13,7 @@ namespace mvcproject.Services
         private readonly DataContext _DataContext;
         public DepartamentoS(DataContext _DataContext)
         {
-            this._DataContext = _DataContext;
+            this._DataContext = _DataContext ?? throw new ArgumentNullException(nameof(_DataContext));
         }
 
         public void DeleteD(int id)
@@ -40,17 +40,30 @@ namespace mvcproject.Services
 
         public ICollection<Departamento> GetD() => this._DataContext._Departamento.ToList();
 
-        public void SaveD(Departamento d)
-        {
-            if (d.NombreD == "" || d.AreaD == "")
-            {
-                throw new Exception("Por favor verifica");
-            }
-            else
-            {
-                this._DataContext._Departamento.Add(d);
-                this._DataContext.SaveChanges();
-            }
-        }
+      public void SaveD(Departamento d)
+{
+    if (d == null)
+    {
+        throw new ArgumentNullException(nameof(d));
+    }
+
+    if (d.NombreD == "" || d.AreaD == "")
+    {
+        throw new Exception("Por favor verifica");
+    }
+      if (_DataContext == null)
+    {
+        throw new Exception("DataContext no inicializado correctamente");
+    }
+    else
+    {
+        d.Id=1;
+        Console.WriteLine(d.Id);
+        Console.WriteLine(d.NombreD + d.AreaD);
+        _DataContext._Departamento.Add(d);
+        _DataContext.SaveChanges();
+    }
+}
+
     }
 }

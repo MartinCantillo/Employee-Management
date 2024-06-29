@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using mvcproject.Repositories;
 using MvcProject.Models;
 
 namespace mvcproject.Controllers
@@ -12,10 +13,12 @@ namespace mvcproject.Controllers
     public class DepartamentoController : Controller
     {
         private readonly ILogger<DepartamentoController> _logger;
+        private readonly IDepartamento _IDepartamento;
 
-        public DepartamentoController(ILogger<DepartamentoController> _logger)
+        public DepartamentoController(ILogger<DepartamentoController> _logger,IDepartamento _IDepartamento)
         {
             this._logger = _logger;
+            this._IDepartamento=_IDepartamento;
         }
 
         public IActionResult RegistrarD()
@@ -52,7 +55,9 @@ namespace mvcproject.Controllers
         {
             
             if (ModelState.IsValid)
-            {
+            {     _logger.LogInformation(d.NombreD + d.AreaD);
+                
+                this._IDepartamento.SaveD(d);
 
                 return RedirectToAction("Confirmacion");
             }

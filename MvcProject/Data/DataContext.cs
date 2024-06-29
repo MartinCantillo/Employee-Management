@@ -36,10 +36,10 @@ namespace MvcProject.Data
              .Property(e => e.Id)
              .ValueGeneratedOnAdd(); //pk autoincremental
 
-             modelBuilder.Entity<Empleado>()
-             .HasOne(e=>e.Departamento)//La navegacion es mi entidad y EFR la reconoce como relacion 
-             .WithMany(d => d.Empleados)//en la tabla departamento hay una lista de empleado(relacion bidireccional)sino hubiera solo le colocaria ()
-             .HasForeignKey(e => e.IdDepartamento);//Atributo de relacion fk
+            modelBuilder.Entity<Empleado>()
+            .HasOne<Departamento>()//relacion con departamento
+            .WithMany()
+            .HasForeignKey(e => e.IdDepartamento);//Atributo de relacion fk
         }
     }
 }
