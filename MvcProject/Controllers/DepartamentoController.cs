@@ -33,7 +33,8 @@ namespace mvcproject.Controllers
 
         public IActionResult VerD()
         {
-            return View();
+            var DepartamentoList = this._IDepartamento.GetD();
+            return View(DepartamentoList);
         }
 
         public IActionResult ObtenerD()
@@ -66,7 +67,7 @@ namespace mvcproject.Controllers
                 catch (Exception ex)
                 {
                     _logger.LogError($"Error al guardar departamento: {ex.Message}");
-                    throw; // O manejar el error adecuadamente según tu aplicación
+                    throw new Exception("Error");
                 }
             }
             return View(d);
